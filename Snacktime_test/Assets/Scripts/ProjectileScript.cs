@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float speed;
     public float force = 1f;
-    public float forceMultiplier = 0.2f;
     public Rigidbody rb;
     private Vector3 rotationTorque = new Vector3(20f,20f,20f);
 
