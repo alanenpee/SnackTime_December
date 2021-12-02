@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
@@ -24,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    private Transform cameraTransform;
+
     public static PlayerMovement instance;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        instance = this;
+        cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -38,11 +38,6 @@ public class PlayerMovement : MonoBehaviour
        
         //GROUND CHECK
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        //if (isGrounded && velocity.y < 0)
-        //{
-        //    velocity.y = -2f;
-        //}
 
         //APPLY GRAVITY
         velocity.y += gravity * Time.deltaTime;
@@ -53,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxisRaw("Vertical");
 
         //PLAYER MOVEMENT
-        //Vector3 move = transform.right * moveX + transform.forward * moveZ;
         Vector3 moveDirection = new Vector3(moveX, 0f, moveZ);
+        moveDirection = moveDirection.x * cameraTransform.right.normalized + moveDirection.z * cameraTransform.forward.normalized;
+        moveDirection.y = 0f;
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
         moveDirection.Normalize();
 
@@ -62,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
         //ROTATE PLAYER IN MOVEMENT DIRECTION
         if (moveDirection != Vector3.zero)
         {
-            Quaternion rotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.Euler(0,cameraTransform.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1314085564031691817}
   - component: {fileID: 1314085564031691818}
   - component: {fileID: 1314085564031691819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1314085564375649193
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1314085564375649189}
   - component: {fileID: 1314085564375649190}
   - component: {fileID: 1314085564375649191}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,8 +188,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1314085564399025016
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1314085564399025012}
   - component: {fileID: 1314085564399025013}
   - component: {fileID: 1314085564399025014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,8 +283,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1314085564803978318
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 1314085564803978314}
   - component: {fileID: 1314085564803978315}
   - component: {fileID: 1314085564803978316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,8 +378,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.559173, z: 1}
-  m_Center: {x: 1.711767e-16, y: -0.2795901, z: -1.1001533e-10}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 1.711767e-16, y: 0, z: -1.1001533e-10}
 --- !u!1 &1314085565078330951
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 1314085565078330947}
   - component: {fileID: 1314085565078330948}
   - component: {fileID: 1314085565078330949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,8 +473,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2233213714045994178
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 2457262474920022493}
   - component: {fileID: 431506062463575319}
   - component: {fileID: 1314085563505260945}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: road_elevated_lowerendbig
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2233213714045994178}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
