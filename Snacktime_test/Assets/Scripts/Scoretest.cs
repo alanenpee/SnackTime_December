@@ -9,24 +9,18 @@ using UnityEngine.UI;
 
 public class Scoretest : MonoBehaviour
 {
-    public Slider progressSlider;
-    public float curProgress;
-    public float newProgress;
-    public float fillSpeed = 5f;
+    public SliderScript slider;
     private SnackRandomizer snack;
 
     private void Start()
     {
-        curProgress = 0f;
         snack = GetComponent<SnackRandomizer>();
     }
 
 
     void Update()
     {
-     progressSlider.value = curProgress;
-     fillSpeed = Time.deltaTime * 0.15f;
-     curProgress = Mathf.MoveTowards(curProgress, newProgress, fillSpeed);
+    
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,7 +29,7 @@ public class Scoretest : MonoBehaviour
         if (other.gameObject.tag == snack.chosenSnack.tagName)
         {
             Debug.Log("Hit");
-            newProgress += snack.chosenSnack.score / 100f;
+            slider.newProgress += snack.chosenSnack.score / 100f;
         }
     }
 

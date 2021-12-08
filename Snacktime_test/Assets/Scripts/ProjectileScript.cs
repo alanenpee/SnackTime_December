@@ -18,6 +18,14 @@ public class ProjectileScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-   
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="Human")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
