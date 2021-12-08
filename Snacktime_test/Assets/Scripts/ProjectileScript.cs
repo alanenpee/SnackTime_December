@@ -1,20 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float force = 1f;
+    public float force;
     public Rigidbody rb;
-
+    public Vector3 target { get; set; }
+    public bool hit { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5f);
         //Add force to shooting
-        rb.AddForce(transform.right * force, ForceMode.Impulse);
+        rb.AddForce((target - transform.position).normalized * force, ForceMode.Impulse);
+        if(!hit && Vector3.Distance(transform.position, target) < 0.1f)
+        {
+            Destroy(gameObject);
+        }
    
     }
 }

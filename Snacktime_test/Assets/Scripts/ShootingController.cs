@@ -1,7 +1,10 @@
+using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class ShootingController : MonoBehaviour
@@ -9,6 +12,14 @@ public class ShootingController : MonoBehaviour
 
     public Transform playerArm;
     public Transform shootingPoint;
+    public Transform target;
+
+    public Sprite selectedSnack;
+    public Sprite[] snacks;
+    public GameObject Image;
+
+    private float perShotDelay = 0.2f;
+    private float timeStamp;
 
     public float mouseSensitivity = 100f;
     public float sensitivityMultiplier;
@@ -20,38 +31,55 @@ public class ShootingController : MonoBehaviour
 
     public Text projectileText;
 
+    private Transform cameraTransform;
+
+    Ray ray;
+    RaycastHit hitInfo;
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-    Cursor.lockState = CursorLockMode.Locked;
-    currentProjectile = Projectiles[0];
-
+        Cursor.lockState = CursorLockMode.Locked;
+        currentProjectile = Projectiles[0];
+        cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
      void Update()
     {
-
         ChangeProjectile();
-
         //Mouse input for player arm,
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime * sensitivityMultiplier;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 0f);
-        playerArm.localRotation = Quaternion.Euler(0f, xRotation, 0f);
-        playerArm.Rotate(Vector3.up * mouseY * Time.deltaTime);
+        //xRotation -= mouseY;
+        //xRotation = Mathf.Clamp(xRotation, -90f, 0f);
+        //playerArm.localRotation = Quaternion.Euler(0f, xRotation, 0f);
+        //playerArm.Rotate(Vector3.up * mouseY * Time.deltaTime);
 
-        if (Input.GetButtonDown("Fire1"))
+
+        if (Input.GetButtonDown("Fire1") && Time.time > timeStamp)
         {
-         Instantiate(currentProjectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
+            RaycastHit hit;
+            GameObject projectile = GameObject.Instantiate(currentProjectile, shootingPoint.transform.position, shootingPoint.rotation);
+            ProjectileScript projectileController = projectile.GetComponent<ProjectileScript>();
+            timeStamp = Time.time + perShotDelay + 0.5f;
+
+            
+                if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            {
+                projectileController.target = hit.point;
+                projectileController.hit = true;
+            }
+            else
+            {
+                projectileController.target = cameraTransform.position + cameraTransform.forward * 100f;
+                projectileController.hit = true;
+            }
         }
-
-        
-
+    
     }
 
-    // Change your projectile with mouse scroll
+
+    // CHANGE YOUR PROJECTILE  WITH MOUSE SCROLL
     public void ChangeProjectile()
     {
         for (int i = 0; i < Projectiles.Length; i++);
@@ -74,21 +102,22 @@ public class ShootingController : MonoBehaviour
             }
         }
 
-        currentProjectile = Projectiles[selectedProjectile];
-        
+        // SHOW YOUR CURRENTLY SELECTED PROJECTILE INSIDE GUN IMAGE
         if(selectedProjectile == 0)
         {
-            projectileText.text = "Current projectile: " + "Chips";
+            selectedSnack = snacks[0];
         }
         else if(selectedProjectile == 1)
         {
-            projectileText.text = "Current projectile: " + "Chocobar";
+            selectedSnack = snacks[1];
         } 
         else if (selectedProjectile == 2)
         {
-            projectileText.text = "Current projectile: " + "Sodacan";
+            selectedSnack = snacks[2];
         }
-        
+        currentProjectile = Projectiles[selectedProjectile];
+        Image.GetComponent<Image>().sprite = selectedSnack;
     }
+
 
 }

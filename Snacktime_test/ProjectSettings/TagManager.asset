@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Tree
+  - Chips
+  - Chocolate
+  - Soda
+  - Human
   layers:
   - Default
   - TransparentFX

@@ -4,30 +4,47 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SnackRandomizer : MonoBehaviour
-{
 
-    public Sprite[] images;
-    public Sprite snackImage;
+{
+    [System.Serializable]
+    public class SnackPair 
+    {
+        public Sprite image;
+        public string tagName;
+        public int score;
+
+    }
+
+    public SnackPair[] images;
+    public SnackPair chosenSnack;
     public GameObject Image;
 
-    void Start()
+    public static SnackRandomizer instance;
+
+    void Awake()
     {
-    randomizeImage();
+     instance = this;
+     randomImage();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetButtonDown("Jump"))
         {
-        randomizeImage();
+            randomImage();
         }
     }
 
-    // Update is called once per frame
-    void randomizeImage()
+    void randomImage()
     {
-     int random = Random.Range(0, images.Length);
-     snackImage = images[random];
-     Image.GetComponent<Image>().sprite = snackImage;
+        int random = Random.Range(0, images.Length);
+        chosenSnack = images[random];
+        Image.GetComponent<Image>().sprite = chosenSnack.image;
     }
+
+
 }
+
+
+
