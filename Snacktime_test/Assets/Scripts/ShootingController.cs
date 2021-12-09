@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class ShootingController : MonoBehaviour
@@ -18,7 +17,7 @@ public class ShootingController : MonoBehaviour
     public Sprite[] snacks;
     public GameObject Image;
 
-    private float perShotDelay = 0.2f;
+    public float perShotDelay = 0.2f;
     private float timeStamp;
 
     public float mouseSensitivity = 100f;
@@ -35,6 +34,8 @@ public class ShootingController : MonoBehaviour
 
     Ray ray;
     RaycastHit hitInfo;
+
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -62,6 +63,7 @@ public class ShootingController : MonoBehaviour
             GameObject projectile = GameObject.Instantiate(currentProjectile, shootingPoint.transform.position, shootingPoint.rotation);
             ProjectileScript projectileController = projectile.GetComponent<ProjectileScript>();
             timeStamp = Time.time + perShotDelay + 0.5f;
+            animator.SetTrigger("Shoot");
 
             
                 if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))

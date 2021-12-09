@@ -5,12 +5,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class Scoretest : MonoBehaviour
 {
     public SliderScript slider;
     private SnackRandomizer snack;
+    public Transform scorePosition;
+    public GameObject scoreText;
 
     private void Start()
     {
@@ -25,11 +28,12 @@ public class Scoretest : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.tag == snack.chosenSnack.tagName)
         {
             Debug.Log("Hit");
             slider.newProgress += snack.chosenSnack.score / 100f;
+
         }
     }
 

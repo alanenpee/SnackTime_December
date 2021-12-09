@@ -5,12 +5,15 @@ public class ProjectileScript : MonoBehaviour
 {
     public float force;
     public Rigidbody rb;
+
     public Vector3 target { get; set; }
     public bool hit { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+
+
         Destroy(gameObject, 5f);
         //Add force to shooting
         rb.AddForce((target - transform.position).normalized * force, ForceMode.Impulse);

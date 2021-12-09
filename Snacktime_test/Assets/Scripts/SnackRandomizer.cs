@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,6 +42,7 @@ public class SnackRandomizer : MonoBehaviour
         int random = Random.Range(0, images.Length);
         chosenSnack = images[random];
         Image.GetComponent<Image>().sprite = chosenSnack.image;
+        
     }
 
 

@@ -62,14 +62,14 @@ public class PlayerMovement : MonoBehaviour
 
         //PLAYER MOVEMENT
         Vector2 input = moveAction.ReadValue<Vector2>();
-        if(input == Vector2.zero)
-        {
-            animator.SetFloat("Speed", 0);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 1);
-        }
+        //if(input == Vector2.zero)
+        //{
+        //    animator.SetFloat("Speed", 0);
+        //}
+        //else
+        //{
+        //    animator.SetFloat("Speed", 1);
+        //}
         Vector3 moveDirection = new Vector3(input.x, 0f, input.y);
         moveDirection = moveDirection.x * cameraTransform.right.normalized + moveDirection.z * cameraTransform.forward.normalized;
         moveDirection.y = 0f;
