@@ -16,6 +16,8 @@ public class AimController : MonoBehaviour
     [SerializeField]
     private Canvas aimCanvas;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,6 +50,7 @@ public class AimController : MonoBehaviour
         vCam.Priority += priorityBoost;
         aimCanvas.enabled = true;
         thirdPersonCanvas.enabled = false;
+        
     }
 
     private void CancelAim()
@@ -55,5 +58,6 @@ public class AimController : MonoBehaviour
         vCam.Priority -= priorityBoost;
         aimCanvas.enabled = false;
         thirdPersonCanvas.enabled = true;
+
     }
 }

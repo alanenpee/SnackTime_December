@@ -5180,7 +5180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533811035}
   m_LocalRotation: {x: 0.06975632, y: 0, z: 0, w: 0.9975641}
-  m_LocalPosition: {x: 1.5190585, y: 3.6014059, z: -0.22311245}
+  m_LocalPosition: {x: 1.7795925, y: 3.6014059, z: -0.22311245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6561,7 +6561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197836719048302090, guid: 0f3c1b5b9dc53074ea9d0579a975f4fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5190585
+      value: 1.7795925
       objectReference: {fileID: 0}
     - target: {fileID: 197836719048302090, guid: 0f3c1b5b9dc53074ea9d0579a975f4fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7588,7 +7588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839463507670236732, guid: 4850fe6ee3ff8cc4095e25c6b1d79bfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6214409
+      value: 1.9145417
       objectReference: {fileID: 0}
     - target: {fileID: 7839463507670236732, guid: 4850fe6ee3ff8cc4095e25c6b1d79bfb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7634,6 +7634,10 @@ PrefabInstance:
       propertyPath: m_Lens.FieldOfView
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 7839463507670236735, guid: 4850fe6ee3ff8cc4095e25c6b1d79bfb, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6871238348514336361}
     - target: {fileID: 7839463507670236735, guid: 4850fe6ee3ff8cc4095e25c6b1d79bfb, type: 3}
       propertyPath: playerInput
       value: 

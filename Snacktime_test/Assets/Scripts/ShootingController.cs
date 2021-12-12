@@ -56,7 +56,6 @@ public class ShootingController : MonoBehaviour
         //playerArm.localRotation = Quaternion.Euler(0f, xRotation, 0f);
         //playerArm.Rotate(Vector3.up * mouseY * Time.deltaTime);
 
-
         if (Input.GetButtonDown("Fire1") && Time.time > timeStamp)
         {
             RaycastHit hit;
